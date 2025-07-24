@@ -5,12 +5,12 @@ use std::{env, process};
 
 fn main() {
     //accede a las variables
-    let args: Vec<String> = env::args().collect();
+    // let args: Vec<String> = env::args().collect();
 
     //let query = &args[1];
     //let file_path = &args[2];
 
-    let config = Config::build(&args).unwrap_or_else(|err|{
+    let config = Config::build(env::args()).unwrap_or_else(|err|{
         println!("problem parsing aregument: {err}");
         process::exit(1);
     }) /* parse_config(&args) */;
